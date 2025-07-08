@@ -160,20 +160,50 @@
             #endregion
 
             #region Question 7
-            Console.Write("Enter your words: ");
-            string input = Console.ReadLine();
-            string[] words = input.Trim().Split(' ');
-            string[] wordsReversed = new string[words.Length];  
-            int wordsPointer = words.Length - 1;
-            int reversedPointer = 0;
-            while (reversedPointer < words.Length)
+            //Console.Write("Enter your words: ");
+            //string input = Console.ReadLine();
+            //string[] words = input.Trim().Split(' ');
+            //string[] wordsReversed = new string[words.Length];  
+            //int wordsPointer = words.Length - 1;
+            //int reversedPointer = 0;
+            //while (reversedPointer < words.Length)
+            //{
+            //    wordsReversed[reversedPointer] = words[wordsPointer];
+            //    reversedPointer++;
+            //    wordsPointer--;
+            //}
+            //string output = string.Join(' ', wordsReversed);
+            //Console.WriteLine($"Reversed Words => {output}");
+            #endregion
+
+            #region Question 8
+            Console.Write("Enter first dimension of array: ");
+            int firstDim = int.Parse(Console.ReadLine());
+            Console.Write("Enter second dimension of array: ");
+            int secondDim = int.Parse(Console.ReadLine());
+            int[,] arr1 = new int[firstDim,secondDim];
+            int[,] arr2 = new int[firstDim, secondDim];
+            // taking items from user in arr1
+            for (int i = 0; i < firstDim; i++)
             {
-                wordsReversed[reversedPointer] = words[wordsPointer];
-                reversedPointer++;
-                wordsPointer--;
+                for (int j = 0;j < secondDim; j++)
+                {
+                    Console.Write($"Enter item at {i},{j} : ");
+                    arr1[i,j] = int.Parse(Console.ReadLine());
+                }
             }
-            string output = string.Join(' ', wordsReversed);
-            Console.WriteLine($"Reversed Words => {output}");
+            // copying items in arr1 to arr2 without using Array.Copy() and print it
+            Console.WriteLine("Items in Second array");
+            for (int i = 0; i < firstDim; i++)
+            {
+                for (int j = 0; j < secondDim; j++)
+                {
+                    arr2[i, j] = arr1[i,j];
+                    Console.Write($"{arr2[i, j]} ");
+                }
+                Console.WriteLine();    
+            }
+
             #endregion
 
         }
