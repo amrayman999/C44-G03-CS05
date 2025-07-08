@@ -78,28 +78,53 @@
             #endregion
 
             #region Question 4
-            Console.Write("Enter size of array: ");
-            int size = int.Parse(Console.ReadLine());
-            int[] arr = new int[size];
-            int minVal = int.MaxValue;
-            int maxVal = int.MinValue;
-            for (int i = 0; i < size; i++)
+            //Console.Write("Enter size of array: ");
+            //int size = int.Parse(Console.ReadLine());
+            //int[] arr = new int[size];
+            //int minVal = int.MaxValue;
+            //int maxVal = int.MinValue;
+            //for (int i = 0; i < size; i++)
+            //{
+            //    Console.Write($"Enter item number {i + 1} : ");
+            //    arr[i] = int.Parse(Console.ReadLine());
+
+            //    if(arr[i] <= minVal)
+            //    {
+            //        minVal = arr[i];
+            //    }
+            //    if (arr[i] >= maxVal)
+            //    {
+            //        maxVal = arr[i];
+            //    }
+            //}
+            //Console.WriteLine($"Max value is {maxVal}");
+            //Console.WriteLine($"Min value is {minVal}");
+
+            #endregion
+
+            #region Question 5
+            Console.WriteLine("Enter Array Size:");
+            int arrSize = int.Parse(Console.ReadLine());
+            int[] numbers = new int[arrSize];
+            int secondMax = int.MinValue;
+            int maxNum = int.MinValue;
+            for (int i = 0; i < arrSize;)
             {
-                Console.Write($"Enter item number {i + 1} : ");
-                arr[i] = int.Parse(Console.ReadLine());
-
-                if(arr[i] < minVal)
+                Console.Write($"enter element number {i + 1} ");
+                bool isParsed = int.TryParse(Console.ReadLine(), out numbers[i]);
+                if (numbers[i] >= maxNum)
                 {
-                    minVal = arr[i];
+                    secondMax = maxNum;
+                    maxNum = numbers[i];
                 }
-                if (arr[i] > maxVal)
+                else if (numbers[i] < maxNum && numbers[i] >= secondMax)
                 {
-                    maxVal = arr[i];
+                    secondMax = numbers[i];
                 }
+                if (isParsed)
+                    ++i;
             }
-            Console.WriteLine($"Max value is {maxVal}");
-            Console.WriteLine($"Min value is {minVal}");
-
+            Console.WriteLine($"The second Largest Number is {secondMax}");
             #endregion
         }
     }
