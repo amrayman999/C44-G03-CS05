@@ -103,29 +103,62 @@
             #endregion
 
             #region Question 5
-            Console.WriteLine("Enter Array Size:");
-            int arrSize = int.Parse(Console.ReadLine());
-            int[] numbers = new int[arrSize];
-            int secondMax = int.MinValue;
-            int maxNum = int.MinValue;
-            for (int i = 0; i < arrSize;)
-            {
-                Console.Write($"enter element number {i + 1} ");
-                bool isParsed = int.TryParse(Console.ReadLine(), out numbers[i]);
-                if (numbers[i] >= maxNum)
-                {
-                    secondMax = maxNum;
-                    maxNum = numbers[i];
-                }
-                else if (numbers[i] < maxNum && numbers[i] >= secondMax)
-                {
-                    secondMax = numbers[i];
-                }
-                if (isParsed)
-                    ++i;
-            }
-            Console.WriteLine($"The second Largest Number is {secondMax}");
+            //Console.WriteLine("Enter Array Size:");
+            //int arrSize = int.Parse(Console.ReadLine());
+            //int[] numbers = new int[arrSize];
+            //int secondMax = int.MinValue;
+            //int maxNum = int.MinValue;
+            //for (int i = 0; i < arrSize;)
+            //{
+            //    Console.Write($"enter element number {i + 1} ");
+            //    bool isParsed = int.TryParse(Console.ReadLine(), out numbers[i]);
+            //    if (numbers[i] >= maxNum)
+            //    {
+            //        secondMax = maxNum;
+            //        maxNum = numbers[i];
+            //    }
+            //    else if (numbers[i] < maxNum && numbers[i] >= secondMax)
+            //    {
+            //        secondMax = numbers[i];
+            //    }
+            //    if (isParsed)
+            //        ++i;
+            //}
+            //Console.WriteLine($"The second Largest Number is {secondMax}");
             #endregion
+
+            #region question 6
+            Console.Write("Enter size of array: ");
+            int size = int.Parse(Console.ReadLine());
+            int[] arr = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write($"Enter item number {i + 1} : ");
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+            int leftPointer = 0;
+            int rightPointer = arr.Length - 1;
+            int maxDistance = int.MinValue;
+            int firstId = 0;
+            int lastId = 0;
+            while (leftPointer < arr.Length)
+            {
+                rightPointer = arr.Length - 1;
+                while (arr[rightPointer] != arr[leftPointer])
+                {
+                    rightPointer--;
+                }
+                if (rightPointer - leftPointer > maxDistance)
+                {
+                    maxDistance = rightPointer - leftPointer -1;
+                    firstId = leftPointer;
+                    lastId = rightPointer;
+                }
+                leftPointer++;
+            }
+            Console.WriteLine($"max distance is {maxDistance} cells between {arr[firstId]} at {firstId} and at {lastId}");
+            #endregion
+
         }
     }
 }
