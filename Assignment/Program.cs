@@ -37,43 +37,68 @@
             #endregion
 
             #region Question 3
-            // this answer is based on assumption that the two arrays are sorted in ascending order
-            // and the resulted array will be sorted also in ascending order
-            int[] arr1 = { 1, 2, 4, 6, 8 };
-            int[] arr2 = { 0, 3, 4, 9, 10 };
-            int[] arrResult = new int[arr1.Length + arr2.Length];
-            int pointer1 = 0;
-            int pointer2 = 0;
-            int resIndex = 0;
-            while (pointer1 < arr1.Length && pointer2 < arr2.Length)
+            //// this answer is based on assumption that the two arrays are sorted in ascending order
+            //// and the resulted array will be sorted also in ascending order
+            //int[] arr1 = { 1, 2, 4, 6, 8 };
+            //int[] arr2 = { 0, 3, 4, 9, 10 };
+            //int[] arrResult = new int[arr1.Length + arr2.Length];
+            //int pointer1 = 0;
+            //int pointer2 = 0;
+            //int resIndex = 0;
+            //while (pointer1 < arr1.Length && pointer2 < arr2.Length)
+            //{
+            //    if (arr1[pointer1] <= arr2[pointer2])
+            //    {
+            //        arrResult[resIndex] = arr1[pointer1];
+            //        pointer1++;
+            //    }
+            //    else
+            //    {
+            //        arrResult[resIndex] = arr2[pointer2];
+            //        pointer2++;
+            //    }
+            //    resIndex++; 
+            //}
+            //// handling the rest of values from arr1 if exsisted
+            //while(pointer1 < arr1.Length)
+            //{
+            //    arrResult[resIndex++] = arr1[pointer1++];
+            //}
+            //// handling the rest of values from arr2 if exsisted
+            //while (pointer2 < arr2.Length)
+            //{
+            //    arrResult[resIndex++] = arr2[pointer2++];
+            //}
+            //Console.WriteLine("The Resulting Array: ");
+            //foreach (int i in arrResult)
+            //{
+            //    Console.Write($"{i} ");
+            //}
+
+            #endregion
+
+            #region Question 4
+            Console.Write("Enter size of array: ");
+            int size = int.Parse(Console.ReadLine());
+            int[] arr = new int[size];
+            int minVal = int.MaxValue;
+            int maxVal = int.MinValue;
+            for (int i = 0; i < size; i++)
             {
-                if (arr1[pointer1] <= arr2[pointer2])
+                Console.Write($"Enter item number {i + 1} : ");
+                arr[i] = int.Parse(Console.ReadLine());
+
+                if(arr[i] < minVal)
                 {
-                    arrResult[resIndex] = arr1[pointer1];
-                    pointer1++;
+                    minVal = arr[i];
                 }
-                else
+                if (arr[i] > maxVal)
                 {
-                    arrResult[resIndex] = arr2[pointer2];
-                    pointer2++;
+                    maxVal = arr[i];
                 }
-                resIndex++; 
             }
-            // handling the rest of values from arr1 if exsisted
-            while(pointer1 < arr1.Length)
-            {
-                arrResult[resIndex++] = arr1[pointer1++];
-            }
-            // handling the rest of values from arr2 if exsisted
-            while (pointer2 < arr2.Length)
-            {
-                arrResult[resIndex++] = arr2[pointer2++];
-            }
-            Console.WriteLine("The Resulting Array: ");
-            foreach (int i in arrResult)
-            {
-                Console.Write($"{i} ");
-            }
+            Console.WriteLine($"Max value is {maxVal}");
+            Console.WriteLine($"Min value is {minVal}");
 
             #endregion
         }
