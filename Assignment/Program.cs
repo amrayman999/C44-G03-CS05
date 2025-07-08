@@ -207,19 +207,19 @@
             #endregion
 
             #region Question 9
-            Console.Write("Enter size of array: ");
-            int size = int.Parse(Console.ReadLine());
-            int[] arr = new int[size];
-            for (int i = 0; i < size; i++)
-            {
-                Console.Write($"Enter item number {i + 1} : ");
-                arr[i] = int.Parse(Console.ReadLine());
-            }
+            //Console.Write("Enter size of array: ");
+            //int size = int.Parse(Console.ReadLine());
+            //int[] arr = new int[size];
+            //for (int i = 0; i < size; i++)
+            //{
+            //    Console.Write($"Enter item number {i + 1} : ");
+            //    arr[i] = int.Parse(Console.ReadLine());
+            //}
 
-            for(int i = arr.Length - 1; i >= 0; i--)
-            {
-                Console.Write($"{arr[i]} ");
-            }
+            //for(int i = arr.Length - 1; i >= 0; i--)
+            //{
+            //    Console.Write($"{arr[i]} ");
+            //}
             #endregion
 
 
